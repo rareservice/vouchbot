@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Vouch Bot - Commands</title>
+    <style>
+        :root {
+            --bg-primary: #2b2d31;
+            --bg-secondary: #313338;
+            --bg-tertiary: #1e1f22;
+            --accent: #5865f2;
+            --accent-hover: #4752c4;
+            --text-primary: #f2f3f5;
+            --text-secondary: #b5bac1;
+            --text-code: #dbdee1;
+            --bg-code: #2b2d31;
+            --border-color: #1e1f22;
+            --success: #23a559;
+            --danger: #da373c;
+            --premium: #ffac33;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'gg sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+            background-color: var(--bg-primary);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--bg-tertiary);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .command-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .command-grid {
+                grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            }
+        }
+
+        .command-card {
+            background-color: var(--bg-primary);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+        }
+
+        .command-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-color: var(--accent);
+        }
+
+        .cmd-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .cmd-name {
+            font-family: 'Consolas', monospace;
+            font-size: 1.2rem;
+            color: var(--accent);
+            background-color: rgba(88, 101, 242, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .cmd-desc {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .cmd-usage-box {
+            background-color: var(--bg-tertiary);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        code {
+            font-family: 'Consolas', monospace;
+            color: var(--text-code);
+            word-break: break-word;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .feature-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Badge Styles */
+        .badge {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .badge-premium {
+            background-color: rgba(255, 172, 51, 0.15);
+            color: var(--premium);
+            border: 1px solid var(--premium);
+        }
+
+        .badge-admin {
+            background-color: rgba(218, 55, 60, 0.15);
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+
+        .badge-auto {
+            background-color: rgba(35, 165, 89, 0.15);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Community Vouch Bot</h1>
+        <p>Official Command Documentation & Usage Guide</p>
+    </header>
+
+    <!-- GENERAL COMMANDS -->
+    <h2 class="section-title">🌍 General Commands (Available to Everyone)</h2>
+    <div class="command-grid">
+        
+        <!-- Vouch -->
+        <div class="command-card">
+            <div class="cmd-header">
+                <span class="cmd-name">Vouching (Trigger)</span>
+            </div>
+            <p class="cmd-desc">The core feature to record a vouch. No prefix needed, just type the sentence.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>legit got &lt;Prize&gt; from @User</code>
+            </div>
+            <div class="cmd-usage-box">
+                <span class="label">Example</span>
+                <code>legit got Nitro Basic from @HostUser</code>
+            </div>
+            <ul class="feature-list">
+                <li>Reacts with ✅ if successful.</li>
+                <li>Reacts with ❌ if server is blacklisted.</li>
+            </ul>
+        </div>
+
+        <!-- Profile -->
+        <div class="command-card">
+            <div class="cmd-header">
+                <span class="cmd-name">+profile / +p</span>
+            </div>
+            <p class="cmd-desc">Displays a user's reputation card with total vouches and trust status.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+profile @User</code>
+            </div>
+            <ul class="feature-list">
+                <li>Smart Feature: Hides vouches from blacklisted servers.</li>
+                <li>Shows trusted/scammer badges.</li>
+            </ul>
+        </div>
+
+        <!-- Server -->
+        <div class="command-card">
+            <div class="cmd-header">
+                <span class="cmd-name">+server</span>
+            </div>
+            <p class="cmd-desc">Displays a server's reputation card. Works even if the bot has left.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+server &lt;Server ID&gt;</code>
+            </div>
+            <ul class="feature-list">
+                <li>Shows Owner ID and Creation Date.</li>
+                <li>Lists total verified vouches for that specific server.</li>
+            </ul>
+        </div>
+
+        <!-- Check Blacklist -->
+        <div class="command-card">
+            <div class="cmd-header">
+                <span class="cmd-name">+checkblacklistserver</span>
+            </div>
+            <p class="cmd-desc">Shows a paginated public list of all blacklisted servers.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+checkblacklistserver</code>
+            </div>
+        </div>
+
+        <!-- Set Community -->
+        <div class="command-card">
+            <div class="cmd-header">
+                <span class="cmd-name">/setcommunity</span>
+            </div>
+            <p class="cmd-desc">Link your own community server to your profile card.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>/setcommunity &lt;link&gt;</code>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- PREMIUM COMMANDS -->
+    <h2 class="section-title" style="color: var(--premium);">💎 Premium Commands (Premium Only)</h2>
+    <div class="command-grid">
+
+        <!-- Report Server -->
+        <div class="command-card" style="border-color: var(--premium);">
+            <div class="cmd-header">
+                <span class="cmd-name">+reportserver</span>
+                <span class="badge badge-premium">Premium</span>
+            </div>
+            <p class="cmd-desc">Opens a private Report Ticket against a server. Attach proofs required.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+reportserver &lt;ID&gt; "&lt;Name&gt;" &lt;Link&gt; &lt;OwnerID&gt; &lt;Reason&gt;</code>
+            </div>
+            <ul class="feature-list">
+                <li>Creates a ticket for admins to review.</li>
+                <li>If accepted: Server is auto-blacklisted & Owner warned.</li>
+                <li>Generates a permanent transcript.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- ADMIN COMMANDS -->
+    <h2 class="section-title" style="color: var(--danger);">🛡️ Admin & Owner Commands</h2>
+    <div class="command-grid">
+
+        <!-- Blacklist Server -->
+        <div class="command-card" style="border-color: var(--danger);">
+            <div class="cmd-header">
+                <span class="cmd-name">+blacklistserver</span>
+                <span class="badge badge-admin">Admin</span>
+            </div>
+            <p class="cmd-desc">Bans a server from the bot system. Stops all vouches and warns members.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Standard Usage</span>
+                <code>+blacklistserver &lt;ID&gt; &lt;Reason&gt;</code>
+            </div>
+            <div class="cmd-usage-box">
+                <span class="label">Manual Usage</span>
+                <code>+blacklistserver &lt;ID&gt; &lt;OwnerID&gt; "Name" &lt;Reason&gt;</code>
+            </div>
+        </div>
+
+        <!-- Unblacklist -->
+        <div class="command-card" style="border-color: var(--danger);">
+            <div class="cmd-header">
+                <span class="cmd-name">+unblacklistserver</span>
+                <span class="badge badge-admin">Admin</span>
+            </div>
+            <p class="cmd-desc">Removes a server from the blacklist.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+unblacklistserver &lt;Server ID&gt;</code>
+            </div>
+        </div>
+
+        <!-- Add Premium -->
+        <div class="command-card" style="border-color: var(--danger);">
+            <div class="cmd-header">
+                <span class="cmd-name">+addpremium</span>
+                <span class="badge badge-admin">Owner Only</span>
+            </div>
+            <p class="cmd-desc">Grants premium status to a user ID.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+addpremium &lt;User ID&gt;</code>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- AUTOMATIC FEATURES -->
+    <h2 class="section-title" style="color: var(--success);">📂 Automatic Features</h2>
+    <div class="command-grid">
+        
+        <div class="command-card" style="border-color: var(--success);">
+            <div class="cmd-header">
+                <span class="cmd-name">New Member Warning</span>
+                <span class="badge badge-auto">Auto</span>
+            </div>
+            <p class="cmd-desc">If the bot is present in a blacklisted server, it instantly DMs any new member who joins:</p>
+            <code>⚠️ Security Warning: This server is flagged as dangerous.</code>
+        </div>
+
+        <div class="command-card" style="border-color: var(--success);">
+            <div class="cmd-header">
+                <span class="cmd-name">Ticket Transcripts</span>
+                <span class="badge badge-auto">Auto</span>
+            </div>
+            <p class="cmd-desc">When closing a "Vouch Proof" or "Server Report" ticket, the bot generates a text transcript and saves it to the specific Transcript Channel.</p>
+        </div>
+
+    </div>
+
+    <footer style="text-align: center; margin-top: 50px; color: var(--text-secondary); font-size: 0.9rem;">
+        <p>&copy; 2025 Community Vouch Bot | Developed by Rare</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
