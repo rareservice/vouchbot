@@ -186,6 +186,12 @@
             color: var(--success);
             border: 1px solid var(--success);
         }
+        
+        .badge-new {
+            background-color: rgba(88, 101, 242, 0.15);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
 
     </style>
 </head>
@@ -221,6 +227,26 @@
 
         <div class="command-card">
             <div class="cmd-header">
+                <span class="cmd-name">+premium</span>
+                <span class="badge badge-new">New</span>
+            </div>
+            <p class="cmd-desc">Check the premium status, User ID, and subscription expiry date.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+premium [User/ID]</code>
+            </div>
+             <div class="cmd-usage-box">
+                <span class="label">Example</span>
+                <code>+premium @User</code>
+            </div>
+            <ul class="feature-list">
+                <li>Shows "Ends in X days" (Dynamic Timestamp).</li>
+                <li>Checks yourself if no user is provided.</li>
+            </ul>
+        </div>
+
+        <div class="command-card">
+            <div class="cmd-header">
                 <span class="cmd-name">+profile / +p</span>
             </div>
             <p class="cmd-desc">Displays a user's reputation card with total vouches and trust status.</p>
@@ -247,6 +273,17 @@
                 <li>Shows Owner ID and Creation Date.</li>
                 <li>Lists total verified vouches for that specific server.</li>
             </ul>
+        </div>
+
+        <div class="command-card">
+            <div class="cmd-header">
+                <span class="cmd-name">+help</span>
+            </div>
+            <p class="cmd-desc">Shows the help menu with links to documentation.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+help</code>
+            </div>
         </div>
 
         <div class="command-card">
@@ -320,10 +357,14 @@
                 <span class="cmd-name">+addpremium</span>
                 <span class="badge badge-admin">Owner Only</span>
             </div>
-            <p class="cmd-desc">Grants premium status to a user ID.</p>
+            <p class="cmd-desc">Grants premium status to a user for a specific duration.</p>
             <div class="cmd-usage-box">
                 <span class="label">Usage</span>
-                <code>+addpremium &lt;User ID&gt;</code>
+                <code>+addpremium &lt;User ID&gt; &lt;Duration&gt;</code>
+            </div>
+            <div class="cmd-usage-box">
+                <span class="label">Example</span>
+                <code>+addpremium 123456789 30d</code>
             </div>
         </div>
 
@@ -347,6 +388,14 @@
                 <span class="badge badge-auto">Auto</span>
             </div>
             <p class="cmd-desc">When closing a "Vouch Proof" or "Server Report" ticket, the bot generates a text transcript and saves it to the specific Transcript Channel.</p>
+        </div>
+
+        <div class="command-card" style="border-color: var(--success);">
+            <div class="cmd-header">
+                <span class="cmd-name">Premium Expiry</span>
+                <span class="badge badge-auto">Auto</span>
+            </div>
+            <p class="cmd-desc">The bot automatically checks for expired subscriptions every minute, removes premium status, and notifies the user.</p>
         </div>
 
     </div>
