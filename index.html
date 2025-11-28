@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Vouch Bot - Commands</title>
+    <title>Bot Documentation Hub</title>
     <style>
         :root {
             --bg-primary: #2b2d31;
@@ -60,6 +60,13 @@
             font-size: 1.1rem;
         }
 
+        .section-separator {
+            margin: 80px 0 40px;
+            border: 0;
+            height: 2px;
+            background-image: linear-gradient(to right, transparent, var(--bg-tertiary), transparent);
+        }
+
         .section-title {
             font-size: 1.5rem;
             margin: 40px 0 20px;
@@ -102,6 +109,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .cmd-name {
@@ -192,12 +201,30 @@
             color: var(--accent);
             border: 1px solid var(--accent);
         }
+        
+        .badge-slash {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            border: 1px solid var(--text-secondary);
+        }
+        
+        .badge-alias {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            margin-left: 5px;
+        }
 
     </style>
 </head>
 <body>
 
 <div class="container">
+    
+    <!-- ========================================== -->
+    <!-- COMMUNITY VOUCH BOT SECTION (Original) -->
+    <!-- ========================================== -->
+
     <header>
         <h1>Community Vouch Bot</h1>
         <p>Official Command Documentation & Usage Guide</p>
@@ -400,8 +427,272 @@
 
     </div>
 
+
+    <!-- ========================================== -->
+    <!-- DD VOUCH BOT SECTION (New)                 -->
+    <!-- ========================================== -->
+
+    <hr class="section-separator">
+
+    <header>
+        <h1>DD Vouch Bot</h1>
+        <p>Official Command Documentation & Usage Guide</p>
+    </header>
+
+    <h2 class="section-title">🌍 General Commands</h2>
+    <div class="command-grid">
+        
+        <div class="command-card">
+            <div class="cmd-header">
+                <span class="cmd-name">+vouch</span>
+                <span class="badge badge-alias">Alias: +rep</span>
+            </div>
+            <p class="cmd-desc">Records a transaction vouch. This puts the vouch in "Pending" status until verified.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Primary Usage</span>
+                <code>+vouch @User legit got &lt;item&gt; for &lt;price&gt; TYSMM!</code>
+            </div>
+             <div class="cmd-usage-box">
+                <span class="label">Secondary Usage</span>
+                <code>+rep @User legit got &lt;item&gt; for &lt;price&gt; TYSMM!</code>
+            </div>
+            <div class="cmd-usage-box">
+                <span class="label">Example</span>
+                <code>+rep @Seller legit got nitro for $2 tysmm!</code>
+            </div>
+            <ul class="feature-list">
+                <li>Bot auto-DMs the seller requesting proof.</li>
+                <li>Alias <code>+rep</code> works exactly the same as <code>+vouch</code>.</li>
+            </ul>
+        </div>
+
+        <div class="command-card">
+            <div class="cmd-header">
+                <span class="cmd-name">+show_profile</span>
+                <span class="badge badge-alias">Alias: +p, +profile</span>
+            </div>
+            <p class="cmd-desc">Displays a comprehensive user profile card including reputation, badges, and shop info.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+show_profile [User]</code>
+            </div>
+             <div class="cmd-usage-box">
+                <span class="label">Short Usage</span>
+                <code>+p [User]</code>
+            </div>
+            <ul class="feature-list">
+                <li>Displays Trusted/King/Scammer badges.</li>
+                <li>Shows the last 5 verified vouch comments.</li>
+                <li>Displays "Frozen" status if user is a suspect.</li>
+            </ul>
+        </div>
+
+        <div class="command-card">
+            <div class="cmd-header">
+                <span class="cmd-name">/setshop</span>
+                <span class="badge badge-slash">Slash Only</span>
+            </div>
+            <p class="cmd-desc">Links your Discord shop server to your profile card.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>/setshop &lt;Invite Link&gt;</code>
+            </div>
+        </div>
+
+        <div class="command-card">
+            <div class="cmd-header">
+                <span class="cmd-name">/setproducts</span>
+                <span class="badge badge-slash">Slash Only</span>
+            </div>
+            <p class="cmd-desc">Updates the "Products" field on your profile card to list what you sell.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>/setproducts &lt;List of items&gt;</code>
+            </div>
+        </div>
+
+        <div class="command-card">
+            <div class="cmd-header">
+                <span class="cmd-name">+reset</span>
+            </div>
+            <p class="cmd-desc">Cancels all your currently pending vouches. Useful if a buyer made a mistake.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+reset</code>
+            </div>
+        </div>
+
+        <div class="command-card">
+            <div class="cmd-header">
+                <span class="cmd-name">+advance_lookup</span>
+                <span class="badge badge-alias">Alias: +advance</span>
+            </div>
+            <p class="cmd-desc">Checks if a user has an active Premium subscription.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+advance_lookup @User</code>
+            </div>
+            <div class="cmd-usage-box">
+                <span class="label">Short Usage</span>
+                <code>+advance @User</code>
+            </div>
+        </div>
+
+    </div>
+
+    <h2 class="section-title" style="color: var(--premium);">💎 Premium Commands & Safety</h2>
+    <div class="command-grid">
+
+        <div class="command-card" style="border-color: var(--premium);">
+            <div class="cmd-header">
+                <span class="cmd-name">+report</span>
+                <span class="badge badge-premium">Premium</span>
+            </div>
+            <p class="cmd-desc">Opens a "Suspect Report" ticket against a user. Requires attaching proof.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+report &lt;Accused ID&gt; &lt;Victim ID&gt; &lt;Reason&gt;</code>
+            </div>
+            <ul class="feature-list">
+                <li>Creates a private ticket for Staff.</li>
+                <li>If Valid: User gets "Suspect" badge.</li>
+            </ul>
+        </div>
+
+        <div class="command-card" style="border-color: var(--premium);">
+            <div class="cmd-header">
+                <span class="cmd-name">+scammer</span>
+                <span class="badge badge-alias">Alias: +scam</span>
+            </div>
+            <p class="cmd-desc">Opens a high-priority "Scammer Report" ticket. Use for confirmed scams. You must attach proof when using this command.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+scammer &lt;Accused ID&gt; &lt;Victim ID&gt; &lt;Explanation&gt; (+Attach Proof)</code>
+            </div>
+            <div class="cmd-usage-box">
+                <span class="label">Secondary Usage</span>
+                <code>+scam &lt;Accused ID&gt; &lt;Victim ID&gt; &lt;Explanation&gt; (+Attach Proof)</code>
+            </div>
+            <ul class="feature-list">
+                <li>If Valid: User gets "Scammer" badge & Role.</li>
+                <li>User is "Frozen" and cannot receive vouches.</li>
+            </ul>
+        </div>
+
+        <div class="command-card" style="border-color: var(--premium);">
+            <div class="cmd-header">
+                <span class="cmd-name">/appeal</span>
+                <span class="badge badge-premium">Premium</span>
+            </div>
+            <p class="cmd-desc">Opens an appeal form if you have been marked as a Scammer or Suspect.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>/appeal</code>
+            </div>
+            <ul class="feature-list">
+                <li>Admins can Accept (Clean) or Deny the appeal.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <h2 class="section-title" style="color: var(--danger);">🛡️ Admin & Owner Commands</h2>
+    <div class="command-grid">
+
+        <div class="command-card" style="border-color: var(--danger);">
+            <div class="cmd-header">
+                <span class="cmd-name">+add_advance</span>
+                <span class="badge badge-alias">Aliases: +addp, +addpremium</span>
+            </div>
+            <p class="cmd-desc">Gifts Premium status to a user for a set duration.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+add_advance @User 30d</code>
+            </div>
+            <div class="cmd-usage-box">
+                <span class="label">Short Usage</span>
+                <code>+addp @User 30d</code>
+            </div>
+            <ul class="feature-list">
+                <li>Auto-DMs user with Yellow embed confirmation.</li>
+                <li>Includes precise expiry timestamp in DM.</li>
+            </ul>
+        </div>
+
+        <div class="command-card" style="border-color: var(--danger);">
+            <div class="cmd-header">
+                <span class="cmd-name">+removereport</span>
+                <span class="badge badge-alias">Alias: +clearuser</span>
+            </div>
+            <p class="cmd-desc">Manually clears a user's Scammer or Suspect status and removes the role.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+removereport @User</code>
+            </div>
+            <div class="cmd-usage-box">
+                <span class="label">Alias Usage</span>
+                <code>+clearuser @User</code>
+            </div>
+        </div>
+
+        <div class="command-card" style="border-color: var(--danger);">
+            <div class="cmd-header">
+                <span class="cmd-name">/rs (Reply Support)</span>
+                <span class="badge badge-admin">Admin</span>
+            </div>
+            <p class="cmd-desc">Sends an official bot embed reply to a user's DM.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>/rs</code>
+            </div>
+        </div>
+
+        <div class="command-card" style="border-color: var(--danger);">
+            <div class="cmd-header">
+                <span class="cmd-name">+addadmin / +removeadmin</span>
+                <span class="badge badge-admin">Owner</span>
+            </div>
+            <p class="cmd-desc">Grants or Revokes Bot Admin privileges to a user.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+addadmin @User</code>
+            </div>
+        </div>
+
+    </div>
+
+    <h2 class="section-title" style="color: var(--success);">📂 Automatic Features</h2>
+    <div class="command-grid">
+        
+        <div class="command-card" style="border-color: var(--success);">
+            <div class="cmd-header">
+                <span class="cmd-name">Smart Expiry Checks</span>
+                <span class="badge badge-auto">Auto</span>
+            </div>
+            <p class="cmd-desc">Bot checks for expired premiums every minute.</p>
+            <code>⚠️ Notification: DMs user upon expiry with a renewal link.</code>
+        </div>
+
+        <div class="command-card" style="border-color: var(--success);">
+            <div class="cmd-header">
+                <span class="cmd-name">Vouch Proof System</span>
+                <span class="badge badge-auto">Auto</span>
+            </div>
+            <p class="cmd-desc">When a vouch is received, the seller gets a DM. Replying to the DM with an image auto-creates a "Proof Ticket" in the main server for Admins to verify.</p>
+        </div>
+
+        <div class="command-card" style="border-color: var(--success);">
+            <div class="cmd-header">
+                <span class="cmd-name">Ticket Transcripts</span>
+                <span class="badge badge-auto">Auto</span>
+            </div>
+            <p class="cmd-desc">Reports, Appeals, and Proof tickets automatically generate a text file transcript upon closure.</p>
+        </div>
+
+    </div>
+
     <footer style="text-align: center; margin-top: 50px; color: var(--text-secondary); font-size: 0.9rem;">
-        <p>&copy; 2025 Community Vouch Bot | Developed by Rare</p>
+        <p>&copy; 2025 Community & DD Vouch Bots | Documentation Hub</p>
     </footer>
 
 </div>
