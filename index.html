@@ -222,7 +222,7 @@
 <div class="container">
     
     <!-- ========================================== -->
-    <!-- COMMUNITY VOUCH BOT SECTION (Original) -->
+    <!-- COMMUNITY VOUCH BOT SECTION (Updated)      -->
     <!-- ========================================== -->
 
     <header>
@@ -237,7 +237,7 @@
             <div class="cmd-header">
                 <span class="cmd-name">Vouching (Trigger)</span>
             </div>
-            <p class="cmd-desc">The core feature to record a vouch. No prefix needed, just type the sentence.</p>
+            <p class="cmd-desc">The core feature to record a vouch. No prefix needed, just type the sentence in chat.</p>
             <div class="cmd-usage-box">
                 <span class="label">Usage</span>
                 <code>legit got &lt;Prize&gt; from @User</code>
@@ -249,41 +249,7 @@
             <ul class="feature-list">
                 <li>Reacts with ✅ if successful.</li>
                 <li>Reacts with ❌ if server is blacklisted.</li>
-            </ul>
-        </div>
-
-        <div class="command-card">
-            <div class="cmd-header">
-                <span class="cmd-name">+premium</span>
-                <span class="badge badge-new">New</span>
-            </div>
-            <p class="cmd-desc">Check the premium status, User ID, and subscription expiry date.</p>
-            <div class="cmd-usage-box">
-                <span class="label">Usage</span>
-                <code>+premium [User/ID]</code>
-            </div>
-             <div class="cmd-usage-box">
-                <span class="label">Example</span>
-                <code>+premium @User</code>
-            </div>
-            <ul class="feature-list">
-                <li>Shows "Ends in X days" (Dynamic Timestamp).</li>
-                <li>Checks yourself if no user is provided.</li>
-            </ul>
-        </div>
-
-        <div class="command-card">
-            <div class="cmd-header">
-                <span class="cmd-name">+profile / +p</span>
-            </div>
-            <p class="cmd-desc">Displays a user's reputation card with total vouches and trust status.</p>
-            <div class="cmd-usage-box">
-                <span class="label">Usage</span>
-                <code>+profile @User</code>
-            </div>
-            <ul class="feature-list">
-                <li>Smart Feature: Hides vouches from blacklisted servers.</li>
-                <li>Shows trusted/scammer badges.</li>
+                <li><strong>Auto-Feature:</strong> Bot DMs the host. Sending an image back submits proof.</li>
             </ul>
         </div>
 
@@ -291,36 +257,50 @@
             <div class="cmd-header">
                 <span class="cmd-name">+server</span>
             </div>
-            <p class="cmd-desc">Displays a server's reputation card. Works even if the bot has left.</p>
+            <p class="cmd-desc">Displays a server's reputation, including trusted/legit badges and recent comments.</p>
             <div class="cmd-usage-box">
                 <span class="label">Usage</span>
-                <code>+server &lt;Server ID&gt;</code>
+                <code>+server [Server ID]</code>
             </div>
             <ul class="feature-list">
-                <li>Shows Owner ID and Creation Date.</li>
-                <li>Lists total verified vouches for that specific server.</li>
+                <li>If no ID is provided, checks the current server.</li>
+                <li>Shows Verified Vouches count.</li>
             </ul>
         </div>
 
         <div class="command-card">
             <div class="cmd-header">
-                <span class="cmd-name">+help</span>
+                <span class="cmd-name">+premium</span>
             </div>
-            <p class="cmd-desc">Shows the help menu with links to documentation.</p>
+            <p class="cmd-desc">Check the premium subscription status for yourself or another user.</p>
             <div class="cmd-usage-box">
                 <span class="label">Usage</span>
-                <code>+help</code>
+                <code>+premium [User/ID]</code>
             </div>
+            <ul class="feature-list">
+                <li>Shows expiry date if active.</li>
+            </ul>
         </div>
 
         <div class="command-card">
             <div class="cmd-header">
                 <span class="cmd-name">+checkblacklistserver</span>
             </div>
-            <p class="cmd-desc">Shows a paginated public list of all blacklisted servers.</p>
+            <p class="cmd-desc">Displays a navigable, paginated list of all blacklisted servers.</p>
             <div class="cmd-usage-box">
                 <span class="label">Usage</span>
                 <code>+checkblacklistserver</code>
+            </div>
+        </div>
+
+        <div class="command-card">
+            <div class="cmd-header">
+                <span class="cmd-name">+help</span>
+            </div>
+            <p class="cmd-desc">Shows the help menu with links to documentation and support.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+help</code>
             </div>
         </div>
 
@@ -334,21 +314,33 @@
                 <span class="cmd-name">+reportserver</span>
                 <span class="badge badge-premium">Premium</span>
             </div>
-            <p class="cmd-desc">Opens a private Report Ticket against a server. Attach proofs required.</p>
+            <p class="cmd-desc">Opens a private Report Ticket against a server. Must include an invite link.</p>
             <div class="cmd-usage-box">
                 <span class="label">Usage</span>
-                <code>+reportserver &lt;ID&gt; "&lt;Name&gt;" &lt;Link&gt; &lt;OwnerID&gt; &lt;Reason&gt;</code>
+                <code>+reportserver &lt;ID&gt; &lt;Link + Details&gt;</code>
             </div>
             <ul class="feature-list">
                 <li>Creates a ticket for admins to review.</li>
-                <li>If accepted: Server is auto-blacklisted & Owner warned.</li>
                 <li>Generates a permanent transcript.</li>
             </ul>
         </div>
 
+        <div class="command-card" style="border-color: var(--premium);">
+            <div class="cmd-header">
+                <span class="cmd-name">/appeal</span>
+                <span class="badge badge-slash">Slash</span>
+                <span class="badge badge-premium">Premium</span>
+            </div>
+            <p class="cmd-desc">Opens a form to appeal a server blacklist if your server was banned.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>/appeal</code>
+            </div>
+        </div>
+
     </div>
 
-    <h2 class="section-title" style="color: var(--danger);">🛡️ Admin & Owner Commands</h2>
+    <h2 class="section-title" style="color: var(--danger);">🛡️ Staff & Admin Commands</h2>
     <div class="command-grid">
 
         <div class="command-card" style="border-color: var(--danger);">
@@ -356,14 +348,10 @@
                 <span class="cmd-name">+blacklistserver</span>
                 <span class="badge badge-admin">Admin</span>
             </div>
-            <p class="cmd-desc">Bans a server from the bot system. Stops all vouches and warns members.</p>
+            <p class="cmd-desc">Manually bans a server from the bot system. Stops all vouches.</p>
             <div class="cmd-usage-box">
-                <span class="label">Standard Usage</span>
+                <span class="label">Usage</span>
                 <code>+blacklistserver &lt;ID&gt; &lt;Reason&gt;</code>
-            </div>
-            <div class="cmd-usage-box">
-                <span class="label">Manual Usage</span>
-                <code>+blacklistserver &lt;ID&gt; &lt;OwnerID&gt; "Name" &lt;Reason&gt;</code>
             </div>
         </div>
 
@@ -375,14 +363,57 @@
             <p class="cmd-desc">Removes a server from the blacklist.</p>
             <div class="cmd-usage-box">
                 <span class="label">Usage</span>
-                <code>+unblacklistserver &lt;Server ID&gt;</code>
+                <code>+unblacklistserver &lt;ID&gt;</code>
             </div>
         </div>
 
         <div class="command-card" style="border-color: var(--danger);">
             <div class="cmd-header">
+                <span class="cmd-name">+globalban</span>
+                <span class="badge badge-admin">Staff</span>
+                <span class="badge badge-alias">Alias: /global_ban</span>
+            </div>
+            <p class="cmd-desc">Globally bans a user from using the bot and attempts to ban them from all shared servers.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+globalban &lt;ID&gt; &lt;Reason&gt;</code>
+            </div>
+        </div>
+
+        <div class="command-card" style="border-color: var(--danger);">
+            <div class="cmd-header">
+                <span class="cmd-name">+glunban</span>
+                <span class="badge badge-admin">Staff</span>
+                <span class="badge badge-alias">Alias: /glunban</span>
+            </div>
+            <p class="cmd-desc">Unbans a user globally and marks them as clean.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+glunban &lt;ID&gt; &lt;Reason&gt;</code>
+            </div>
+        </div>
+
+        <div class="command-card" style="border-color: var(--danger);">
+            <div class="cmd-header">
+                <span class="cmd-name">/reply</span>
+                <span class="badge badge-slash">Slash</span>
+                <span class="badge badge-admin">Admin</span>
+            </div>
+            <p class="cmd-desc">Opens a modal to send an official bot DM to a user (Support Ticket Reply).</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>/reply</code>
+            </div>
+        </div>
+
+    </div>
+
+    <h2 class="section-title" style="color: var(--danger);">👑 Owner Commands</h2>
+    <div class="command-grid">
+        <div class="command-card" style="border-color: var(--danger);">
+            <div class="cmd-header">
                 <span class="cmd-name">+addpremium</span>
-                <span class="badge badge-admin">Owner Only</span>
+                <span class="badge badge-admin">Owner</span>
             </div>
             <p class="cmd-desc">Grants premium status to a user for a specific duration.</p>
             <div class="cmd-usage-box">
@@ -394,39 +425,45 @@
                 <code>+addpremium 123456789 30d</code>
             </div>
         </div>
-
     </div>
 
-    <h2 class="section-title" style="color: var(--success);">📂 Automatic Features</h2>
+    <h2 class="section-title" style="color: var(--success);">🖱️ Interactive Buttons (Secondary Commands)</h2>
     <div class="command-grid">
         
         <div class="command-card" style="border-color: var(--success);">
             <div class="cmd-header">
-                <span class="cmd-name">New Member Warning</span>
-                <span class="badge badge-auto">Auto</span>
+                <span class="cmd-name">Vouch Proof Ticket</span>
             </div>
-            <p class="cmd-desc">If the bot is present in a blacklisted server, it instantly DMs any new member who joins:</p>
-            <code>⚠️ Security Warning: This server is flagged as dangerous.</code>
+            <p class="cmd-desc">Appears in the proof channel when a host submits a screenshot.</p>
+            <ul class="feature-list">
+                <li><strong>[Accept & Verify]:</strong> Verifies vouch, logs it, DMs host "Verified".</li>
+                <li><strong>[Deny & Close]:</strong> Rejects vouch, DMs host "Denied".</li>
+            </ul>
         </div>
 
         <div class="command-card" style="border-color: var(--success);">
             <div class="cmd-header">
-                <span class="cmd-name">Ticket Transcripts</span>
-                <span class="badge badge-auto">Auto</span>
+                <span class="cmd-name">Server Report Ticket</span>
             </div>
-            <p class="cmd-desc">When closing a "Vouch Proof" or "Server Report" ticket, the bot generates a text transcript and saves it to the specific Transcript Channel.</p>
+            <p class="cmd-desc">Appears in the report category when a Premium user reports a server.</p>
+            <ul class="feature-list">
+                <li><strong>[Accept & Blacklist]:</strong> Blacklists server, Mass Alerts server members, DMs owner.</li>
+                <li><strong>[Deny & Close]:</strong> Rejects report, DMs victim.</li>
+            </ul>
         </div>
 
         <div class="command-card" style="border-color: var(--success);">
             <div class="cmd-header">
-                <span class="cmd-name">Premium Expiry</span>
-                <span class="badge badge-auto">Auto</span>
+                <span class="cmd-name">Appeal Ticket</span>
             </div>
-            <p class="cmd-desc">The bot automatically checks for expired subscriptions every minute, removes premium status, and notifies the user.</p>
+            <p class="cmd-desc">Appears when a user appeals a blacklist.</p>
+            <ul class="feature-list">
+                <li><strong>[Accept Appeal]:</strong> Removes server from blacklist, notifies user.</li>
+                <li><strong>[Deny Appeal]:</strong> Rejects appeal, notifies user.</li>
+            </ul>
         </div>
 
     </div>
-
 
     <!-- ========================================== -->
     <!-- DD VOUCH BOT SECTION (New)                 -->
