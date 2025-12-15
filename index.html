@@ -18,7 +18,7 @@
             --border-color: #1e1f22;
             --success: #23a559;
             --danger: #da373c;
-            --premium: #ffac33;
+            --premium: #FFD700; /* Updated to Golden */
         }
 
         * {
@@ -179,7 +179,7 @@
         }
 
         .badge-premium {
-            background-color: rgba(255, 172, 51, 0.15);
+            background-color: rgba(255, 215, 0, 0.15);
             color: var(--premium);
             border: 1px solid var(--premium);
         }
@@ -577,8 +577,72 @@
 
     </div>
 
-    <h2 class="section-title" style="color: var(--premium);">💎 Premium Commands & Safety</h2>
+    <h2 class="section-title" style="color: var(--premium);">💎 Premium Commands & Tools</h2>
     <div class="command-grid">
+        
+        <div class="command-card" style="border-color: var(--premium);">
+            <div class="cmd-header">
+                <span class="cmd-name">+export</span>
+                <span class="badge badge-premium">New</span>
+            </div>
+            <p class="cmd-desc">Exports all your verified vouches into a downloadable CSV file. Perfect for backups.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+export</code>
+            </div>
+            <div class="cmd-usage-box">
+                <span class="label">Secondary Usage</span>
+                <code>+export @User</code>
+            </div>
+            <div class="cmd-usage-box">
+                <span class="label">ID Usage</span>
+                <code>+export &lt;User ID&gt;</code>
+            </div>
+        </div>
+
+        <div class="command-card" style="border-color: var(--premium);">
+            <div class="cmd-header">
+                <span class="cmd-name">+stats</span>
+                <span class="badge badge-premium">New</span>
+            </div>
+            <p class="cmd-desc">View detailed analytics: Total vouches, estimated revenue, weekly growth, and top customer.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+stats</code>
+            </div>
+            <div class="cmd-usage-box">
+                <span class="label">Secondary Usage</span>
+                <code>+stats @User</code>
+            </div>
+            <div class="cmd-usage-box">
+                <span class="label">ID Usage</span>
+                <code>+stats &lt;User ID&gt;</code>
+            </div>
+        </div>
+
+        <div class="command-card" style="border-color: var(--premium);">
+            <div class="cmd-header">
+                <span class="cmd-name">+pin</span>
+                <span class="badge badge-premium">New</span>
+            </div>
+            <p class="cmd-desc">Pin up to 3 of your best vouches to the top of your profile.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+pin &lt;Vouch ID&gt;</code>
+            </div>
+        </div>
+
+        <div class="command-card" style="border-color: var(--premium);">
+            <div class="cmd-header">
+                <span class="cmd-name">+unpin</span>
+                <span class="badge badge-premium">New</span>
+            </div>
+            <p class="cmd-desc">Remove a pinned vouch from your profile.</p>
+            <div class="cmd-usage-box">
+                <span class="label">Usage</span>
+                <code>+unpin &lt;Vouch ID&gt;</code>
+            </div>
+        </div>
 
         <div class="command-card" style="border-color: var(--premium);">
             <div class="cmd-header">
@@ -601,14 +665,14 @@
                 <span class="cmd-name">+scammer</span>
                 <span class="badge badge-alias">Alias: +scam</span>
             </div>
-            <p class="cmd-desc">Opens a high-priority "Scammer Report" ticket. Use for confirmed scams. You must attach proof when using this command.</p>
+            <p class="cmd-desc">Opens a high-priority "Scammer Report" ticket. Use for confirmed scams. You must attach proof.</p>
             <div class="cmd-usage-box">
                 <span class="label">Usage</span>
-                <code>+scammer &lt;Accused ID&gt; &lt;Victim ID&gt; &lt;Explanation&gt; (+Attach Proof)</code>
+                <code>+scammer &lt;Accused ID&gt; &lt;Victim ID&gt; &lt;Explanation&gt;</code>
             </div>
             <div class="cmd-usage-box">
                 <span class="label">Secondary Usage</span>
-                <code>+scam &lt;Accused ID&gt; &lt;Victim ID&gt; &lt;Explanation&gt; (+Attach Proof)</code>
+                <code>+scam &lt;Accused ID&gt; &lt;Victim ID&gt; &lt;Explanation&gt;</code>
             </div>
             <ul class="feature-list">
                 <li>If Valid: User gets "Scammer" badge & Role.</li>
@@ -651,7 +715,7 @@
                 <code>+addp @User 30d</code>
             </div>
             <ul class="feature-list">
-                <li>Auto-DMs user with Yellow embed confirmation.</li>
+                <li>Auto-DMs user with <strong>Golden Embed</strong> confirmation.</li>
                 <li>Includes precise expiry timestamp in DM.</li>
             </ul>
         </div>
